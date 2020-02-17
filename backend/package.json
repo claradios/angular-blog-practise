@@ -1,0 +1,45 @@
+{
+  "name": "blog-apirest-practice-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collectCoverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claradios/blog-APIrest-practice-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claradios/blog-APIrest-practice-/issues"
+  },
+  "homepage": "https://github.com/claradios/blog-APIrest-practice-#readme",
+  "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-jest": "^24.9.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "4.17.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.4.1",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "jest-fetch-mock": "^3.0.1",
+    "supertest": "^4.0.2"
+  }
+}

@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "d2f2150b-55da-4c1d-b3d0-c30e3d14e91d",
+		"name": "REST API Blog collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New User POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Juana Molina\",\n\t\"nickname\": \"molina22\",\n\t\"password\": \"5fjdkvmgkxn\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Post POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"author\": \"Juana Molina\",\n\t\"nickname\": \"molina22\",\n\t\"title\": \"Qué Es Bitcoin\",\n\t\"content\": \"Hola de nuevo queridos seguidores. Hoy os traigo las últimas actualizaciones de MOngo que son una maravilla.\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Posts GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Post GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/1f934386-0cae-47ae-846b-bb0bc134303b",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"1f934386-0cae-47ae-846b-bb0bc134303b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/0d27bf26-7446-42c9-a3b3-531a0e97c845",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Post PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"author\": \"Jaime Molina\",\n\t\"nickname\": \"molina52\",\n\t\"title\": \"Hablemos De Lo Importante\",\n\t\"content\": \"Hola de nuevo queridos seguidores. Hoy os traigo las últimas actualizaciones de MOngo que son una maravilla.\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/0d27bf26-7446-42c9-a3b3-531a0e97c845",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Offensive Word POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"word\": \"zorra\",\n\t\"level\":4}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Offensive Words GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Offensive Word GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/1f934386-0cae-47ae-846b-bb0bc134303b",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"1f934386-0cae-47ae-846b-bb0bc134303b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Offensive Word DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/0d27bf26-7446-42c9-a3b3-531a0e97c845",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Offensive Word PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"word\": \"zorra\",\n\t\"level\":4}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/0d27bf26-7446-42c9-a3b3-531a0e97c845",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Comment POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nickname\": \"javiva\",\n\t\"text\":\"Quería saludar a todos los lectores. Hola desde Canarias\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},		
+		{
+			"name": "Delete Comment DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/0d27bf26-7446-42c9-a3b3-531a0e97c845/comments/0d27jf24-7336-42d5-a3b3-531a05a3b3a3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845",
+						"comments",
+						"0d27jf24-7336-42d5-a3b3-531a05a3b3a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify comment PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nickname\": \"javiva\",\n\t\"text\":\"Buenas tardes.Quería saludar a todos los lectores. Hola desde Canarias\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/0d27bf26-7446-42c9-a3b3-531a0e97c845/comments/0d27jf24-7336-42d5-a3b3-531a05a3b3a3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"0d27bf26-7446-42c9-a3b3-531a0e97c845",
+						"comments",
+						"0d27jf24-7336-42d5-a3b3-531a05a3b3a3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

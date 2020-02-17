@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "576ab993-f689-40b7-946a-534f28ffb161",
+		"name": "REST API Blog collection copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login  POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48aba030-72ba-454d-b855-25bda21a807e",
+						"exec": [
+							"pm.environment.set(\"TOKEN\", pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "tombola3",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Pepa Flores",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3443/login/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New User  POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"Bob Esponja\",\n\t\"nickname\": \"bobby\",\n\t\"password\": \"1234567\",\n\t\"userImage\": \"https://via.placeholder.com/110\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/signup/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Users GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query User GET",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Post POST",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"title\": \"Aprende A Cuidar tus Plantas\",\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus leo velit, at mattis purus varius vel. Praesent aliquam tristique mi, euismod euismod turpis euismod pharetra. Etiam posuere odio sit amet urna consequat egestas. Maecenas mattis metus urna, eu feugiat elit fringilla vitae. Mauris non facilisis nisi. Proin et purus vel lectus faucibus lacinia. Donec sit amet nibh nec massa rhoncus pellentesque. Aliquam fermentum nec arcu non dignissim. Sed blandit accumsan dui, nec mattis turpis convallis vitae. Vivamus ut bibendum magna. In eleifend elit risus. Quisque dapibus mattis felis. Nam sit amet nisl imperdiet, dapibus tortor eget, blandit odio. Morbi vel erat sapien. Aliquam vel lacinia quam. Aliquam eu dui nulla. In rutrum arcu et erat luctus, id egestas augue sodales. Aenean ante lectus, commodo quis magna in, bibendum lacinia elit. Vestibulum convallis tellus lectus, non tempor turpis interdum congue. Nullam pharetra vel elit non finibus. Nullam venenatis nisi eu hendrerit placerat. Nunc sed neque vehicula, tempus elit id, rhoncus massa. Integer accumsan lorem non dolor tincidunt ultrices. Sed eu dolor ac enim suscipit pulvinar. Pellentesque luctus elit vel pellentesque blandit. Sed iaculis enim turpis, id facilisis urna mattis eget. Nunc dolor neque, commodo sit amet porta id, molestie at dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin tempus tortor ut nulla auctor vehicula. Praesent gravida eu lorem ac sagittis. Vestibulum et auctor nisl.\",\n    \"urlToImage\": \"https://cdn.shopify.com/s/files/1/2083/6855/products/ANTHURIUM_ANDREANUM_RED_-_GIFT_PLANTS.exoticflora.jpg?v=1578916119\",\n    \"likes\": 1300,\n    \"filter\": \"clarendon\"\n  }"
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Posts GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3443/posts/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Post GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3443/posts/5e340ac93d692a285b837248",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e340ac93d692a285b837248"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Post PUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"title\": \"Consejos Para Cuidar tus Plantitas\",\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus leo velit, at mattis purus varius vel. Praesent aliquam tristique mi, euismod euismod turpis euismod pharetra. Etiam posuere odio sit amet urna consequat egestas. Maecenas mattis metus urna, eu feugiat elit fringilla vitae. Mauris non facilisis nisi. Proin et purus vel lectus faucibus lacinia. Donec sit amet nibh nec massa rhoncus pellentesque. Aliquam fermentum nec arcu non dignissim. Sed blandit accumsan dui, nec mattis turpis convallis vitae. Vivamus ut bibendum magna. In eleifend elit risus. Quisque dapibus mattis felis. Nam sit amet nisl imperdiet, dapibus tortor eget, blandit odio. Morbi vel erat sapien. Aliquam vel lacinia quam. Aliquam eu dui nulla. In rutrum arcu et erat luctus, id egestas augue sodales. Aenean ante lectus, commodo quis magna in, bibendum lacinia elit. Vestibulum convallis tellus lectus, non tempor turpis interdum congue. Nullam pharetra vel elit non finibus. Nullam venenatis nisi eu hendrerit placerat. Nunc sed neque vehicula, tempus elit id, rhoncus massa. Integer accumsan lorem non dolor tincidunt ultrices. Sed eu dolor ac enim suscipit pulvinar. Pellentesque luctus elit vel pellentesque blandit. Sed iaculis enim turpis, id facilisis urna mattis eget. Nunc dolor neque, commodo sit amet porta id, molestie at dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin tempus tortor ut nulla auctor vehicula. Praesent gravida eu lorem ac sagittis. Vestibulum et auctor nisl.\",\n    \"urlToImage\": \"https://cdn.shopify.com/s/files/1/2083/6855/products/ANTHURIUM_ANDREANUM_RED_-_GIFT_PLANTS.exoticflora.jpg?v=1578916119\",\n    \"likes\": 1301,\n    \"filter\": \"clarendon\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/5e340ac93d692a285b837248",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e340ac93d692a285b837248"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/5e1c60685e3b3b449562f0d8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e1c60685e3b3b449562f0d8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Comment POST",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\":\"Siesta time for sure\"}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/5e160fcccc12600aad9a2b3c/comments/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e160fcccc12600aad9a2b3c",
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Comment DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/5e160fcccc12600aad9a2b3c/comments/5e16e8e572d0db0e7336d3b6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e160fcccc12600aad9a2b3c",
+						"comments",
+						"5e16e8e572d0db0e7336d3b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify comment PUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"text\":\"la modificación de comentarios funciona\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3443/posts/5e160fcccc12600aad9a2b3c/comments/5e1c95ebaf1d58633d442982",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"posts",
+						"5e160fcccc12600aad9a2b3c",
+						"comments",
+						"5e1c95ebaf1d58633d442982"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Offensive Words GET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Offensive Word POST",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"word\": \"maricón\",\n\t\"level\":4}"
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Offensive Word GET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/5e0a0b5029dc5d3e3a2580aa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"5e0a0b5029dc5d3e3a2580aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Offensive Word DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/5e1c9b880983d167f5eb071d",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"5e1c9b880983d167f5eb071d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Offensive Word PUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"word\": \"subnormal\",\n\t\"level\":2}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3443/offensivewords/5e0a0b5029dc5d3e3a2580ac",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"offensivewords",
+						"5e0a0b5029dc5d3e3a2580ac"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
