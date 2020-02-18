@@ -25,5 +25,4 @@ export class LoginService {
     return this.http.post<TokenDTO>(this.config.api + 'login', '', httpOptions);
   }
 }
-// this.config.api + 'auth'
-// 'http://localhost:3001/auth/'
+
