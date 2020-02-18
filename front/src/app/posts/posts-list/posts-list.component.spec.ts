@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PostsListComponent } from './posts-list.component';
+
 
 describe('PostsListComponent', () => {
   let component: PostsListComponent;
@@ -21,5 +21,10 @@ describe('PostsListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should set posts$', () => {
+    component.ngOnInit();
+    expect(component.posts$).toBeDefined();
   });
 });

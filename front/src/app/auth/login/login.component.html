@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+
+  <label for="username">Username:</label>
+  <input type="text" formControlName="username" id="username" />
+
+  <label for="psw">Password</label>
+  <input type="password" formControlName="password" id="psw" />
+
+  <button [disabled]="!form.valid" (click)="onSend()">Send</button>
+</form>
+{{form.valid}}

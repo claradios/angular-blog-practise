@@ -1,0 +1,9 @@
+input.ng-pending {
+  background-color: grey;
+}
+input.ng-valid {
+  background-color: green;
+}
+input.ng-invalid {
+  background-color: red;
+}
