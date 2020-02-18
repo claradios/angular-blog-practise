@@ -6,6 +6,6 @@
   <label for="psw">Password</label>
   <input type="password" formControlName="password" id="psw" />
 
-  <button [disabled]="!form.valid" (click)="onSend()">Send</button>
+  <button (click)="onSend($event)">Send</button>
 </form>
 {{form.valid}}

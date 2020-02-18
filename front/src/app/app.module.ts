@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { LayoutModule } from './layout/layout.module';
@@ -44,10 +45,11 @@ const ROUTES: Routes = [
     RouterModule.forRoot(ROUTES),
     BrowserModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [
-    { provide: 'config', useValue: config },
+    { provide: 'config', useValue: config }
   ],
   bootstrap: [AppComponent]
 })
