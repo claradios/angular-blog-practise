@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { SimpleComponent } from './layout/simple/simple.component';
@@ -26,12 +27,13 @@ const ROUTES: Routes = [
     ]
   },
   {
-    path: 'login',
+    path: '',
     component: SimpleComponent,
     children: [
       {
-        path: '', component: LoginComponent
-      }
+        path: 'login', component: LoginComponent
+      },
+      { path: 'signup', component: SignupComponent}
     ]
   },
   { path: '**', redirectTo: 'feed', pathMatch: 'full' }
@@ -45,11 +47,11 @@ const ROUTES: Routes = [
     RouterModule.forRoot(ROUTES),
     BrowserModule,
     LayoutModule,
-    HttpClientModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [
-    { provide: 'config', useValue: config }
+    { provide: 'config', useValue: config },
   ],
   bootstrap: [AppComponent]
 })

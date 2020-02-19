@@ -3,15 +3,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { PostDetailComponent } from './post-detail/post-detail.component';
 
 const ROUTES: Routes = [
-  {path: '', component: PostsListComponent},
-  {path: ':id', component: PostDetailComponent}
+  {path: '', component: PostsListComponent}
 ];
 
 @NgModule({
-  declarations: [PostsListComponent, PostDetailComponent],
+  declarations: [PostsListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),

@@ -1,0 +1,20 @@
+<p>signup works!</p>
+<form [formGroup]="form">
+
+  <label for="username">Username:</label>
+  <input type="text" formControlName="username" id="username" />
+
+  <label for="nickname">Nickname:</label>
+  <input type="text" formControlName="nickname" id="nickname" />
+
+  <label for="psw">Password:</label>
+  <input type="password" formControlName="password" id="psw" />
+
+  <label for="psw">Profile image:</label>
+  <input type="file" formControlName="userImage" id="userImage" />
+
+  <button (click)="onSignup($event)">Signup</button>
+</form>
+<p *ngIf="success">{{success}}</p>
+<p *ngIf="error">{{error}}</p>
+{{form.valid}}
