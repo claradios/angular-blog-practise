@@ -20,6 +20,14 @@ export class PostCreateComponent implements OnInit {
         [
           Validators.required
         ]
+      ),
+      content: new FormControl(
+        '',
+        [Validators.required]
+      ),
+      urlToImage: new FormControl(
+        '',
+        [Validators.required]
       )
    });
   }
