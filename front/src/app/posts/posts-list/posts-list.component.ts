@@ -8,6 +8,7 @@ import { PostsService } from '../posts.service';
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.css']
 })
+
 export class PostsListComponent implements OnInit {
   posts$: Observable<Posts[]>;
 
@@ -17,5 +18,4 @@ export class PostsListComponent implements OnInit {
   ngOnInit(): void {
     this.posts$ = this.postsService.getPosts();
   }
-
 }

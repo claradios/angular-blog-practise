@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
+import { PostDTO } from './post-dto.model';
+import { Post } from './post.model';
 import { PostsDTO } from './posts-dto.model';
 import { PostsProxyService } from './posts-proxy.service';
 import { Posts } from './posts.model';
@@ -29,6 +31,14 @@ export class PostsService {
           posts = [...posts, post];
         });
         return posts;
+      })
+    );
+  }
+  getPostById(id): Observable<Post> {
+    return this.proxy.getPostById(id).pipe(
+      map((postDTO: PostDTO) => {
+        const post: Post = postDTO;
+        return post;
       })
     );
   }

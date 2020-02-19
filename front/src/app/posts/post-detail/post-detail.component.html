@@ -1,1 +1,15 @@
 <p>post-detail works!</p>
+<h1>{{post?.title}}</h1>
+<nav>
+  <button (click)="deletePost()">delete</button>
+  <button (click)="editPost()">edit</button>
+</nav>
+<p>written by {{post?.author}}</p>
+<article>{{post?.content}}</article>
+<ul>
+  <li *ngFor ="let comment of post?.comments">
+    <span>{{comment.date | date}}</span>
+    <h3>{{comment.nickname}}</h3>
+    <p>{{comment.text}}</p>
+  </li>
+</ul>
