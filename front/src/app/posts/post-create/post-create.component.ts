@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostsStoreService } from '../posts-store.service';
 
 @Component({
   selector: 'app-post-create',
@@ -8,10 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PostCreateComponent implements OnInit {
   form: FormGroup;
-  // userToken: TokenDTO;
-  // sub: Subscription;
 
-  constructor() { }
+  constructor(private store: PostsStoreService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -31,8 +30,11 @@ export class PostCreateComponent implements OnInit {
       )
    });
   }
+
   onCreate($event) {
     $event.preventDefault();
-    console.log('hola');
+    console.log('soy el onCreate del componente');
+    this.store.create$(this.form.value);
+   // this.postsService.createPost(this.form.value);
   }
 }

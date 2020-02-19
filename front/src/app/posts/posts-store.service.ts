@@ -22,6 +22,7 @@ export class PostsStoreService extends Store<Posts[]> {
   }
 
   create$(post: Post): Promise<Post> {
+    console.log('soy el store');
     return this.service.createPost(post).pipe(
       tap(postResult => {
         this.store([postResult, ...this.get()]);

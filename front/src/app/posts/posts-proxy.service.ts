@@ -17,6 +17,7 @@ export class PostsProxyService {
     return this.httpClient.get<PostDTO>(this.config.api + 'posts/' + id);
   }
   createPost(body): Observable<PostDTO> {
+    console.log('soy el proxy', body);
     return this.httpClient.post<PostDTO>(this.config.api + 'posts', body);
   }
 }

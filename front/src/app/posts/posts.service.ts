@@ -43,6 +43,7 @@ export class PostsService {
     );
   }
   createPost(body): Observable<Post> {
+    console.log('soy el service', body);
     return this.proxy.createPost(body).pipe(
       map((postDTO: PostDTO) => {
         const post: Post = postDTO;
