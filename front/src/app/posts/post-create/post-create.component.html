@@ -1,1 +1,15 @@
 <p>post-create works!</p>
+<form [formGroup]="form">
+
+  <label for="title">Title:</label>
+  <input type="text" formControlName="title" id="title" />
+
+  <label for="content">Content</label>
+  <textarea type="content" formControlName="content" id="content"></textarea>
+
+  <label for="urlToImage">Content</label>
+  <input type="file" formControlName="urlToImage" id="urlToImage"/>
+
+  <button (click)="onCreate($event)">Create</button>
+</form>
+<!-- {{form.valid}} -->
