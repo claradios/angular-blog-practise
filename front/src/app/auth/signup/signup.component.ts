@@ -25,10 +25,11 @@ export class SignupComponent implements OnInit, OnDestroy {
         ]
       ),
       nickname: new FormControl('', [Validators.required]),
-      userImage: new FormControl(),
+      userImage: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
+
   onSignup($event) {
     $event.preventDefault();
     this.sub = this.service.getData(this.form.value).subscribe(
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       error => this.error = 'OOoops! Something went wrong: ' + error.message
     );
   }
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
