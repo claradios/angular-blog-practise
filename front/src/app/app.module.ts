@@ -9,6 +9,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { SimpleComponent } from './layout/simple/simple.component';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
 
 
 const config = {
@@ -23,6 +24,9 @@ const ROUTES: Routes = [
         path: 'feed',
         loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
 
+      },
+      {
+        path: 'create', component: PostCreateComponent
       }
     ]
   },

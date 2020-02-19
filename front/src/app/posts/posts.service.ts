@@ -42,4 +42,12 @@ export class PostsService {
       })
     );
   }
+  createPost(body): Observable<Post> {
+    return this.proxy.createPost(body).pipe(
+      map((postDTO: PostDTO) => {
+        const post: Post = postDTO;
+        return post;
+      })
+    );
+  }
 }

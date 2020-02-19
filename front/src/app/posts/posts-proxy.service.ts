@@ -16,6 +16,9 @@ export class PostsProxyService {
   getPostById(id): Observable<PostDTO> {
     return this.httpClient.get<PostDTO>(this.config.api + 'posts/' + id);
   }
+  createPost(body): Observable<PostDTO> {
+    return this.httpClient.post<PostDTO>(this.config.api + 'posts', body);
+  }
 }
 
 // https://localhost:3443/posts/
