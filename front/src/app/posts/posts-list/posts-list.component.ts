@@ -27,6 +27,5 @@ export class PostsListComponent implements OnInit {
   editPost($event) {
     const id = $event.currentTarget.parentElement.id;
     this.router.navigate(['edit/' + id]);
-    console.log(id);
   }
 }
