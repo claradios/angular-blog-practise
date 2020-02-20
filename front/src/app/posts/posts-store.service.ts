@@ -22,12 +22,23 @@ export class PostsStoreService extends Store<Posts[]> {
   }
 
   create$(post: Post): Promise<Post> {
-    console.log('soy el store');
+    console.log(post, 'soy el post-store');
     return this.service.createPost(post).pipe(
       tap(postResult => {
         this.store([postResult, ...this.get()]);
       })
     ).toPromise();
   }
+
+  delete$(id: string): Promise<Post> {
+    return this.service.deletePostById(id).pipe(
+    tap(() => {
+    const posts = this.get();
+    const newPosts = posts.filter(post => post._id !== id);
+    this.store(newPosts);
+    })
+    ).toPromise();
+    }
+
 
 }

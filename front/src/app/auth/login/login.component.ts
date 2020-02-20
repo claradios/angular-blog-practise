@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from '../login.service';
 import { TokenDTO } from '../token.dto';
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit , OnDestroy {
   form: FormGroup;
   userToken: TokenDTO;
   sub: Subscription;
-  constructor(private service: LoginService) { }
+
+  constructor(private service: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -33,8 +35,7 @@ export class LoginComponent implements OnInit , OnDestroy {
     this.sub = this.service.getUserToken(this.form.value).subscribe(
       response => {
         this.userToken = response;
-        console.log(this.form.value);
-        console.log(this.userToken);
+        this.router.navigate(['feed']);
         sessionStorage.setItem('token', this.userToken.token);
       },
       error => console.log(error));

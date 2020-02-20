@@ -35,6 +35,5 @@ export class PostCreateComponent implements OnInit {
     $event.preventDefault();
     console.log('soy el onCreate del componente');
     this.store.create$(this.form.value);
-   // this.postsService.createPost(this.form.value);
   }
 }

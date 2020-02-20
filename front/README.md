@@ -1,3 +1,8 @@
+El interceptor cuelga de app.module y le pones la condición de que si es la ruta login que descarte. (segundo enlace)
+
+https://stackoverflow.com/questions/49746548/how-to-exclude-some-services-like-login-register-from-interceptor-angular-5-ht
+
+
 # Front
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.

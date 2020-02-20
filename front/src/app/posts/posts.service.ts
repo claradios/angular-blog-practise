@@ -42,8 +42,18 @@ export class PostsService {
       })
     );
   }
+
+  deletePostById(id): Observable<Post> {
+    console.log('soy el service', id);
+    return this.proxy.deletePostById(id).pipe(
+      map((postDTO: PostDTO) => {
+        const post: Post = postDTO;
+        return post;
+      })
+    );
+  }
+
   createPost(body): Observable<Post> {
-    console.log('soy el service', body);
     return this.proxy.createPost(body).pipe(
       map((postDTO: PostDTO) => {
         const post: Post = postDTO;

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from '../post.model';
+import { PostsStoreService } from '../posts-store.service';
 import { PostsService } from '../posts.service';
 
 @Component({
@@ -13,7 +14,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   post: Post;
   id: string;
   sub: Subscription;
-  constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute) { }
+  constructor(private store: PostsStoreService,
+              private postsService: PostsService,
+              private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
@@ -33,7 +36,8 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
   deletePost() {
-    console.log('delete');
+    console.log('soy el botón');
+    this.store.delete$(this.id);
   }
   editPost() {
     console.log('edit');
