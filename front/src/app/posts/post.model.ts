@@ -8,7 +8,7 @@ export interface Post {
   urlToImage: string;
   likes: number;
   filter: string;
-  comments: Comment[];
+  comments?: Comment[];
 }
 
 export interface Comment {

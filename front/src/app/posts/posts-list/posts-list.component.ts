@@ -20,12 +20,10 @@ export class PostsListComponent implements OnInit {
     this.store.init();
     this.posts$ = this.store.get$();
   }
-  deletePost($event) {
-    const id = $event.currentTarget.parentElement.id;
-    this.store.delete$(id);
+  deletePost(id) {
+     this.store.delete$(id);
   }
-  editPost($event) {
-    const id = $event.currentTarget.parentElement.id;
+  editPost(id) {
     this.router.navigate(['edit/' + id]);
   }
 }

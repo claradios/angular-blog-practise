@@ -60,8 +60,6 @@ describe('PostCreateComponent', () => {
 
   it('when click onCreate() should call store', () => {
     const ev = jasmine.createSpyObj('e', ['preventDefault']);
-    // component.form.get('title').setValue('mi título');
-    // component.form.get('content').setValue('mi contenido');
 
     const spyService = spyOn(TestBed.inject(PostsStoreService), 'create$');
     // .and.callFake(() => of(FAKE_POST));

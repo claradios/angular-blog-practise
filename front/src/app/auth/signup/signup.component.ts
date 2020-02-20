@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SignupService } from '../signup.service';
@@ -8,7 +8,7 @@ import { SignupService } from '../signup.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SignupComponent implements OnInit {
 
   form: FormGroup;
   sub: Subscription;
@@ -40,7 +40,4 @@ export class SignupComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
 }

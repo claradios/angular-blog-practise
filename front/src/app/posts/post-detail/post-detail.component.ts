@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from '../post.model';
 import { PostsStoreService } from '../posts-store.service';
@@ -16,7 +16,8 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   sub: Subscription;
   constructor(private store: PostsStoreService,
               private postsService: PostsService,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private router: Router) { }
 
 
   ngOnInit(): void {
@@ -36,11 +37,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
   deletePost() {
-    console.log('soy el botón');
     this.store.delete$(this.id);
   }
   editPost() {
-    console.log('edit');
+    this.router.navigate(['edit/' + this.id]);
   }
-
 }
