@@ -10,6 +10,8 @@
   <label for="urlToImage">Image:</label>
   <input type="file" formControlName="urlToImage" id="urlToImage"/>
 
-  <button (click)="onCreate($event)">Create</button>
+  <button *ngIf="!edit" (click)="onCreate($event)">Create</button>
+  <button *ngIf="edit" (click)="onUpdate($event)">Update</button>
+
 </form>
 <!-- {{form.valid}} -->

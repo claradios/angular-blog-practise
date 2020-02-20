@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PostsStoreService } from '../posts-store.service';
 import { Posts } from '../posts.model';
@@ -13,7 +14,7 @@ export class PostsListComponent implements OnInit {
   posts$: Observable<Posts[]>;
 
 
-  constructor(private store: PostsStoreService) { }
+  constructor(private store: PostsStoreService, private router: Router) { }
 
   ngOnInit(): void {
     this.store.init();
@@ -22,5 +23,10 @@ export class PostsListComponent implements OnInit {
   deletePost($event) {
     const id = $event.currentTarget.parentElement.id;
     this.store.delete$(id);
+  }
+  editPost($event) {
+    const id = $event.currentTarget.parentElement.id;
+    this.router.navigate(['edit/' + id]);
+    console.log(id);
   }
 }
