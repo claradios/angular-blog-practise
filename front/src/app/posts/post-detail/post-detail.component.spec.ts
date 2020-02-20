@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostDetailComponent } from './post-detail.component';
+// import { PostDetailComponent } from './post-detail.component';
 
-describe('PostDetailComponent', () => {
-  let component: PostDetailComponent;
-  let fixture: ComponentFixture<PostDetailComponent>;
+// describe('PostDetailComponent', () => {
+//   let component: PostDetailComponent;
+//   let fixture: ComponentFixture<PostDetailComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PostDetailComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ PostDetailComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PostDetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(PostDetailComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

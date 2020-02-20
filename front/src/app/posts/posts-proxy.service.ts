@@ -17,11 +17,13 @@ export class PostsProxyService {
     return this.httpClient.get<PostDTO>(this.config.api + 'posts/' + id);
   }
   deletePostById(id): Observable<PostDTO> {
-    console.log('soy el proxy del delete', id);
     return this.httpClient.delete<PostDTO>(this.config.api + 'posts/' + id);
   }
   createPost(body): Observable<PostDTO> {
     return this.httpClient.post<PostDTO>(this.config.api + 'posts', body);
+  }
+  updatePost(id, body): Observable<PostDTO> {
+    return this.httpClient.put<PostDTO>(this.config.api + 'posts/' + id, body);
   }
 }
 

@@ -53,6 +53,15 @@ export class PostsService {
     );
   }
 
+  updatePost(id, body): Observable<Post> {
+    return this.proxy.updatePost(id, body).pipe(
+      map((postDTO: PostDTO) => {
+        const post: Post = postDTO;
+        return post;
+      })
+    );
+  }
+
   createPost(body): Observable<Post> {
     return this.proxy.createPost(body).pipe(
       map((postDTO: PostDTO) => {

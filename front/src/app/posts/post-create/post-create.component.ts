@@ -28,39 +28,6 @@ export class PostCreateComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    if (this.route.search(this.re) === -1) {
-      this.edit = false;
-    } else {
-      this.edit = true;
-      this.activatedRoute.params.subscribe((params) => {
-        this.id = params.id;
-      });
-      this.sub = this.postsService.getPostById(this.id).subscribe(
-        res => {
-          this.post = res;
-          this.titleVal = res.title;
-          this.contentVal = res.content;
-          this.form = new FormGroup({
-            title: new FormControl(
-              this.titleVal,
-              [
-                Validators.required
-              ]
-            ),
-            content: new FormControl(
-              this.contentVal,
-              [Validators.required]
-            ),
-            urlToImage: new FormControl(
-              '',
-              [Validators.required]
-            )
-          });
-        },
-        error => console.log(error)
-      );
-    }
-    // this.store.get$();
     this.form = new FormGroup({
       title: new FormControl(
         '',
@@ -77,6 +44,22 @@ export class PostCreateComponent implements OnInit {
         [Validators.required]
       )
     });
+
+    if (this.route.search(this.re) === -1) {
+      this.edit = false;
+    } else {
+      this.edit = true;
+      this.activatedRoute.params.subscribe((params) => {
+        this.id = params.id;
+      });
+      this.sub = this.postsService.getPostById(this.id).subscribe(
+        res => {
+          this.form.get('title').setValue(res.title);
+          this.form.get('content').setValue(res.content);
+        },
+        error => console.log(error)
+      );
+    }
   }
 
   onCreate($event) {
@@ -86,5 +69,6 @@ export class PostCreateComponent implements OnInit {
   onUpdate($event) {
     console.log(this.edit);
     $event.preventDefault();
+    this.store.update$(this.id, this.form.value);
   }
 }
