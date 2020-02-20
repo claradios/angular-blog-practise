@@ -2,7 +2,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoginService } from '../login.service';
+import { of } from 'rxjs';
+import { SignupService } from '../signup.service';
 import { SignupComponent } from './signup.component';
 
 const config = {
@@ -16,7 +17,7 @@ describe('SignupComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SignupComponent ],
-      providers: [LoginService, { provide: 'config', useValue: config }],
+      providers: [SignupService, { provide: 'config', useValue: config }],
       imports: [ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
@@ -52,4 +53,22 @@ describe('SignupComponent', () => {
     password.setValue('123456');
     expect(password.valid).toBeTruthy();
   });
+  it('when click onSend() should call loginService', () => {
+    const FAKE_SIGNUP = {
+      message: 'string',
+      token: 'string',
+      userData: {
+        username: 'string',
+        rol: 'string',
+        nickname: 'string',
+        userImage: 'string'
+      }
+    };
+    const ev = jasmine.createSpyObj('e', ['preventDefault']);
+    const spyService = spyOn(TestBed.inject(SignupService), 'getData').and.callFake(() => of(FAKE_SIGNUP));
+    component.onSignup(ev);
+    expect(ev.preventDefault).toHaveBeenCalled();
+    expect(spyService).toHaveBeenCalled();
+  });
+
 });

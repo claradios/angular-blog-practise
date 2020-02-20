@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 import { LoginService } from '../login.service';
 import { LoginComponent } from './login.component';
 const config = {
@@ -46,4 +47,23 @@ describe('LoginComponent', () => {
     password.setValue('123456');
     expect(password.valid).toBeTruthy();
   });
+
+  it('when click onSend() should call loginService', () => {
+    const FAKE_LOGIN = {
+      message: 'string',
+      token: 'string',
+      userData: {
+        username: 'string',
+        rol: 'string',
+        nickname: 'string',
+        userImage: 'string'
+      }
+    };
+    const ev = jasmine.createSpyObj('e', ['preventDefault']);
+    const spyService = spyOn(TestBed.inject(LoginService), 'getUserToken').and.callFake(() => of(FAKE_LOGIN));
+    component.onSend(ev);
+    expect(ev.preventDefault).toHaveBeenCalled();
+    expect(spyService).toHaveBeenCalled();
+  });
+
 });
