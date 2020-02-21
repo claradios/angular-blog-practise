@@ -15,6 +15,6 @@
 
   <button (click)="onSignup($event)">Signup</button>
 </form>
-<p *ngIf="success">{{success}}</p>
+<p *ngIf="success">{{success}}<a [routerLink]="['/login']">go to login!</a></p>
 <p *ngIf="error">{{error}}</p>
 {{form.valid}}

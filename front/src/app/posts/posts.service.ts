@@ -11,6 +11,9 @@ import { Posts } from './posts.model';
   providedIn: 'root'
 })
 export class PostsService {
+  static createPost(FAKE_POST: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private proxy: PostsProxyService) { }
   getPosts(): Observable<Posts[]> {

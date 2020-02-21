@@ -65,10 +65,12 @@ export class PostCreateComponent implements OnInit {
   onCreate($event) {
     $event.preventDefault();
     this.store.create$(this.form.value);
+    this.router.navigate(['feed']);
   }
   onUpdate($event) {
     console.log(this.edit);
     $event.preventDefault();
     this.store.update$(this.id, this.form.value);
+    this.router.navigate(['feed']);
   }
 }

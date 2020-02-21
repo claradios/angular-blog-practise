@@ -56,21 +56,21 @@ describe('PostsService', () => {
   it('getPostById method', () => {
     const spyService = spyOn(TestBed.inject(PostsProxyService), 'getPostById').and.callFake(() => of(FAKE_POST));
     service.getPostById(FAKE_ID);
-    expect(spyService).toHaveBeenCalled();
+    expect(spyService).toHaveBeenCalledWith(FAKE_ID);
   });
   it('deletePostById method', () => {
     const spyService = spyOn(TestBed.inject(PostsProxyService), 'deletePostById').and.callFake(() => of(FAKE_POST));
     service.deletePostById(FAKE_ID);
-    expect(spyService).toHaveBeenCalled();
+    expect(spyService).toHaveBeenCalledWith(FAKE_ID);
   });
   it('updatePost method', () => {
     const spyService = spyOn(TestBed.inject(PostsProxyService), 'updatePost').and.callFake(() => of(FAKE_POST));
     service.updatePost(FAKE_ID, FAKE_POST);
-    expect(spyService).toHaveBeenCalled();
+    expect(spyService).toHaveBeenCalledWith(FAKE_ID, FAKE_POST);
   });
   it('createPost method', () => {
     const spyService = spyOn(TestBed.inject(PostsProxyService), 'createPost').and.callFake(() => of(FAKE_POST));
     service.createPost(FAKE_POST);
-    expect(spyService).toHaveBeenCalled();
-  });
+    expect(spyService).toHaveBeenCalledWith(FAKE_POST);
+   });
 });
