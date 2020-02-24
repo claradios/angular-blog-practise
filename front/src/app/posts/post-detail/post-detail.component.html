@@ -1,15 +1,45 @@
-<p>post-detail works!</p>
-<h1>{{post?.title}}</h1>
-<nav>
-  <button (click)="deletePost()">delete</button>
-  <button (click)="editPost()">edit</button>
-</nav>
-<p>written by {{post?.author}}</p>
+<mat-card>
+  <mat-card-content class= "cover" [ngStyle]="{
+    'background-image':'url('+ post.urlToImage +')'
+  }">
+    <!-- <img mat-card-image [src]="[post?.urlToImage]"> -->
+    <mat-card-title>{{post?.title}}</mat-card-title>
+  </mat-card-content>
+  <mat-toolbar-row>
+    <img mat-card-avatar [src]="[post?.userImage]">
+    <mat-card-subtitle>written by {{post?.author}}</mat-card-subtitle>
+    <button mat-icon-button (click)="deletePost()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="editPost()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-card>
+
+
+
+<!-- <img matListAvatar src="https://myconstructor.gr/img/customers-imgs/avatar.png" alt="..."> -->
+
+
+
+
 <article>{{post?.content}}</article>
-<ul>
-  <li *ngFor ="let comment of post?.comments">
-    <span>{{comment.date | date}}</span>
-    <h3>{{comment.nickname}}</h3>
-    <p>{{comment.text}}</p>
-  </li>
-</ul>
+
+<mat-list>
+  <mat-list-item *ngFor="let comment of post?.comments">
+    <img matListAvatar src="https://myconstructor.gr/img/customers-imgs/avatar.png" alt="...">
+    <h3 matLine> {{comment.nickname}} </h3>
+    <p matLine>
+      <span> {{comment.date | date}} </span>
+      <span class="demo-2"> -- {{comment.text}} </span>
+    </p>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-item>
+</mat-list>

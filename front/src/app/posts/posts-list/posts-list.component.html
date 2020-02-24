@@ -1,18 +1,45 @@
-<p>posts-list works!</p>
-<ol>
+<div class="grid-container">
+  <h3 class="mat-h3">My feed</h3>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let post of (posts$ | async)" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card" class="my-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{post.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="editPost(post._id)">
+                <mat-icon aria-hidden="false" aria-label="edit post">edit</mat-icon>
+                Edit
+              </button>
+              <button mat-menu-item (click)="deletePost(post._id)">
+                  <mat-icon aria-hidden="false" aria-label="delete post">delete</mat-icon>
+                  remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <a [routerLink]="'/feed/'+ post._id">
+            <div class="cover" [ngStyle]="{
+            'background-image':'url('+ post.urlToImage +')'
+          }"> Reed more ...</div>
+          </a>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<!--  -->
+<!-- <ol>
 <li *ngFor="let post of (posts$ | async)" id="{{post._id}}">
  <a [routerLink]="'/feed/'+ post._id">
   <div class ="cover"[ngStyle] = "{
-    'display': 'flex',
-    'height': '200px',
-    'background-image':'url('+ post.urlToImage +')',
-    'background-repeat': 'no-repeat',
-    'background-position': 'center',
-    'color': 'seashell',
-    'width': '100%'
+    'background-image':'url('+ post.urlToImage +')'
   }"><h3 class="title">{{post.title}}</h3></div>
 </a>
  <button (click)="deletePost(post._id)" >delete</button>
  <button (click)="editPost(post._id)" >edit</button>
   </li>
-</ol>
+</ol> -->
