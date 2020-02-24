@@ -1,7 +1,17 @@
 <p>posts-list works!</p>
 <ol>
 <li *ngFor="let post of (posts$ | async)" id="{{post._id}}">
- <a [routerLink]="'/feed/'+ post._id"><h3>{{post.title}}</h3></a>
+ <a [routerLink]="'/feed/'+ post._id">
+  <div class ="cover"[ngStyle] = "{
+    'display': 'flex',
+    'height': '200px',
+    'background-image':'url('+ post.urlToImage +')',
+    'background-repeat': 'no-repeat',
+    'background-position': 'center',
+    'color': 'seashell',
+    'width': '100%'
+  }"><h3 class="title">{{post.title}}</h3></div>
+</a>
  <button (click)="deletePost(post._id)" >delete</button>
  <button (click)="editPost(post._id)" >edit</button>
   </li>

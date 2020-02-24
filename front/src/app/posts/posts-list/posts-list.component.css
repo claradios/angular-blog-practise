@@ -1,0 +1,17 @@
+ol {
+  margin: 0;
+  padding: 0;
+}
+.cover {
+    display: flex;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: seashell;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+
+}
