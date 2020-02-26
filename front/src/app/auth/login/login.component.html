@@ -6,6 +6,6 @@
   <label for="psw">Password</label>
   <input type="password" formControlName="password" id="psw" />
 
-  <button (click)="onSend($event)">Send</button>
+  <button mat-fab (click)="onSend($event)"><mat-icon>send</mat-icon></button>
 </form>
 {{form.valid}}

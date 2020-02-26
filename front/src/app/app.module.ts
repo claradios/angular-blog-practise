@@ -1,6 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -12,7 +13,6 @@ import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { SimpleComponent } from './layout/simple/simple.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const config = {
   api: 'https://localhost:3443/'
 };
@@ -66,6 +66,7 @@ const ROUTES: Routes = [
       useClass: AuthInterceptorService,
       multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

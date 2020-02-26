@@ -1,8 +1,7 @@
 <mat-card>
   <mat-card-content class= "cover" [ngStyle]="{
-    'background-image':'url('+ post.urlToImage +')'
+    'background-image':'url('+ post?.urlToImage +')'
   }">
-    <!-- <img mat-card-image [src]="[post?.urlToImage]"> -->
     <mat-card-title>{{post?.title}}</mat-card-title>
   </mat-card-content>
   <mat-toolbar-row>
@@ -15,17 +14,9 @@
       <mat-icon>edit</mat-icon>
     </button>
   </mat-toolbar-row>
-</mat-card>
-
-
-
-<!-- <img matListAvatar src="https://myconstructor.gr/img/customers-imgs/avatar.png" alt="..."> -->
-
-
-
 
 <article>{{post?.content}}</article>
-
+</mat-card>
 <mat-list>
   <mat-list-item *ngFor="let comment of post?.comments">
     <img matListAvatar src="https://myconstructor.gr/img/customers-imgs/avatar.png" alt="...">

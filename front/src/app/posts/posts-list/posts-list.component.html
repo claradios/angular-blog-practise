@@ -23,7 +23,7 @@
         <mat-card-content class="dashboard-card-content">
           <a [routerLink]="'/feed/'+ post._id">
             <div class="cover" [ngStyle]="{
-            'background-image':'url('+ post.urlToImage +')'
+            'background-image':'url('+ post?.urlToImage +')'
           }"> Reed more ...</div>
           </a>
         </mat-card-content>
@@ -31,15 +31,4 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<!--  -->
-<!-- <ol>
-<li *ngFor="let post of (posts$ | async)" id="{{post._id}}">
- <a [routerLink]="'/feed/'+ post._id">
-  <div class ="cover"[ngStyle] = "{
-    'background-image':'url('+ post.urlToImage +')'
-  }"><h3 class="title">{{post.title}}</h3></div>
-</a>
- <button (click)="deletePost(post._id)" >delete</button>
- <button (click)="editPost(post._id)" >edit</button>
-  </li>
-</ol> -->
+
