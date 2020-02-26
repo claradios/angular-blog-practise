@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
 import { PostCreateComponent } from './post-create/post-create.component';
+import { PostCommentComponent } from './post-detail/post-comment/post-commment.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 // import { PostsDashboardComponent } from './posts-dashboard/posts-dashboard.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
@@ -22,7 +23,7 @@ const ROUTES: Routes = [
  // {path: 'create', component: PostCreateComponent}
 ];
 @NgModule({
-  declarations: [PostsListComponent, PostDetailComponent, PostCreateComponent],
+  declarations: [PostsListComponent, PostDetailComponent, PostCommentComponent, PostCreateComponent],
   imports: [
     ReactiveFormsModule,
     CommonModule,

@@ -17,20 +17,5 @@
 
 <article>{{post?.content}}</article>
 </mat-card>
-<mat-list>
-  <mat-list-item *ngFor="let comment of post?.comments">
-    <img matListAvatar src="https://myconstructor.gr/img/customers-imgs/avatar.png" alt="...">
-    <h3 matLine> {{comment.nickname}} </h3>
-    <p matLine>
-      <span> {{comment.date | date}} </span>
-      <span class="demo-2"> -- {{comment.text}} </span>
-    </p>
-    <button mat-icon-button>
-      <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>delete</mat-icon>
-    </button>
-    <mat-divider [inset]="true"></mat-divider>
-  </mat-list-item>
-</mat-list>
+<app-post-comment *ngFor="let comment of post?.comments" [comment]=comment></app-post-comment>
+

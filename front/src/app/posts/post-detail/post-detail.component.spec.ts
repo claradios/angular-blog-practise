@@ -70,7 +70,6 @@ describe('PostDetailComponent', () => {
   it('when call editPost() it navegates to edit', inject([Router], (router: Router) => {
     const routerSpy = spyOn(router, 'navigate');
     component.editPost();
-    // expect(routerSpy).toHaveBeenCalledWith(['/edit']);
     expect(routerSpy).toHaveBeenCalled();
   }));
 });
